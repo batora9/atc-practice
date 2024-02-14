@@ -11,17 +11,11 @@ using vi = vector<int>;
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 
 int main(){
-    ll n,a=0,b=0;
+    ll n,ans = 0;
     cin >> n;
     vector<ll> x(n); rep(i,n) cin >> x[i];
     sort(x.rbegin(),x.rend());
-    for(int i = 0; i < n/2;) {
-        a += x[i];
-        b += x[i+1];
-        i+=2;
-    }
-    if(n%2 != 0) a += x[n-1];
-    cout << a << b << endl;
-    cout << abs(a-b) << endl;
+    rep(i,n) ans += x[i]*(i%2 ? -1 : 1);
+    cout << ans << endl;
     return 0;
 }
