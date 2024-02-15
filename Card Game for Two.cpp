@@ -11,6 +11,11 @@ using vi = vector<int>;
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 
 int main(){
-    
+    ll n,ans = 0;
+    cin >> n;
+    vector<ll> x(n); rep(i,n) cin >> x[i];
+    sort(x.rbegin(),x.rend());
+    rep(i,n) ans += x[i]*(i%2 ? -1 : 1);
+    cout << ans << endl;
     return 0;
 }
