@@ -1,6 +1,7 @@
 {
     "C_Cpp.errorSquiggles": "enabledIfIncludesResolve",
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
