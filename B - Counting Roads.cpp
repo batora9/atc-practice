@@ -11,15 +11,16 @@ using vi = vector<int>;
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 
 int main(){
-    int n,sum = 0; cin >> n;
-    vector<int> b(n-1),a(n);
-    rep(i,n-1) cin >> b[i];
-    a[0] = b[0];
-    for(int i = 1; i < n; i++) {
-        a[i] = min(a[i-1],b[i]);
+    int n,m; cin >> n >> m;
+    vector<int> a(m),b(m);
+    rep(i,m) cin >> a[i] >> b[i];
+    rep(i,n) {
+        int cnt = 0;
+        rep(j,m) {
+            if(i+1 == a[j]) cnt++;
+            if(i+1 == b[j]) cnt++;
+        }
+        cout << cnt << endl;
     }
-    a[n-1] = b[n-2];
-    rep(i,n) sum += a[i];
-    cout << sum << endl;
     return 0;
 }
