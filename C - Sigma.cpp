@@ -11,15 +11,16 @@ using vi = vector<int>;
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 
 int main(){
-    ll n,a,b; cin >> n >> a >> b;
-    if((b-a)%2 == 0) {
-        cout << (b-a)/2 << endl;
-        return 0;
+    ll n,k,sum = 0; cin >> n >> k;
+    vector<ll> a(n);
+    rep(i,n) cin >> a[i];
+    sort(a.begin(),a.end());
+    sum = k*(k+1)/2;
+    cerr << sum << endl;
+    rep(i,n) {
+        if(i > 0&& a[i] == a[i-1]) continue;
+        if(a[i] > k) break;
+        else sum -= a[i];
     }
-    if(a < n/2 ) {
-        cout << (b-a)/2 << endl;
-        return 0;
-    }
-    cout << (n-a+(n-b))/2 << endl;
-    return 0;
+    cout << sum << endl;
 }
